@@ -19,7 +19,7 @@ const handler = async (req, res) => {
        // res.status(201).json({message: 'Meetup inserted'})
 
        const { MongoClient } = require('mongodb');
-       const uri = "mongodb+srv://mthrfckr:0YRCwLmXQkFAygzH@cluster0.l1nje.mongodb.net/meetups?retryWrites=true&w=majority";
+       const uri = "mongodb+srv://mthrfckr:Eh7TpGltO4Yy6Q7e@cluster0.l1nje.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
        const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
        try {
            await client.connect()

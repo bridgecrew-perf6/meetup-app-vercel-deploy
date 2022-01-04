@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { MongoClient } from \"mongodb\";\nconst url = process.env.MONGO_MEETUPS_URL;\n\nconst connectToMeetups = async () => {\n  return await MongoClient.connect(url);\n};\n\nexport default connectToMeetups;","map":null,"metadata":{},"sourceType":"module"}

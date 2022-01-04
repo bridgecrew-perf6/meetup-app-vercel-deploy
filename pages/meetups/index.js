@@ -1,8 +1,8 @@
 import React from 'react';
 import MeetupList from "../../components/meetups/MeetupList";
 
-import connectToMeetups from "../../helpers/meetupsConnect";
 import Head from "next/head";
+import {MongoClient} from "mongodb";
 
 const Meetups = (props) => {
 
@@ -23,7 +23,7 @@ const Meetups = (props) => {
 export const getStaticProps = async () => { // prerender this page on server and fetching data to it
     // some logic
 
-    const client = await connectToMeetups()
+    const client = await MongoClient.connect("mongodb+srv://mthrfckr:Eh7TpGltO4Yy6Q7e@cluster0.l1nje.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
     const collection = client.db("meetups").collection("meetups");
 

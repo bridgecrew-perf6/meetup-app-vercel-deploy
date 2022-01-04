@@ -1,6 +1,5 @@
 import MeetupDetail from "../../../components/meetups/MeetupDetail";
-import connectToDatabase from "../../../helpers/meetupsConnect"
-import {ObjectId} from "mongodb";
+import {MongoClient, ObjectId} from "mongodb";
 import Head from "next/head";
 
 const SingleMeetup = (props) => {
@@ -27,7 +26,7 @@ const SingleMeetup = (props) => {
 };
 
 export const getStaticPaths = async () => {
-    const client = await connectToDatabase()
+    const client = await MongoClient.connect("mongodb+srv://mthrfckr:Eh7TpGltO4Yy6Q7e@cluster0.l1nje.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     const collection = client.db('meetups').collection('meetups')
 
     const meetups = await collection.find({}, {_id: 1}).toArray()
@@ -47,7 +46,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (ctx) => {
     const meetupId = ctx.params.meetupId
 
-    const client = await connectToDatabase()
+    const client = await MongoClient.connect("mongodb+srv://mthrfckr:Eh7TpGltO4Yy6Q7e@cluster0.l1nje.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
     const collection = client.db("meetups").collection("meetups");
 
